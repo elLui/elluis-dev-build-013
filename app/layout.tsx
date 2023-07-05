@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import {cn} from "@/lib/utils";
+import Providers from "@/components/context/providers/providers";
 
 
 export const metadata = {
@@ -14,7 +15,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className={cn("font-rig-sans")}>{children}</body>
+        <body className={cn("font-rig-sans")}>
+        <Providers>
+            {children}
+        </Providers>
+        </body>
         </html>
     )
 }
