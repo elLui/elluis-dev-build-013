@@ -1,9 +1,6 @@
 // providers.tsx
-
-// Required imports for the component
-import React from 'react';
-import AuthProvider from "@/components/context/providers/auth/auth-provider";
 import ThemeProvider from "@/components/context/providers/theme/theme-provider";
+import AuthProvider from "@/components/context/providers/auth/auth-provider";
 
 
 /**
@@ -15,16 +12,13 @@ import ThemeProvider from "@/components/context/providers/theme/theme-provider";
  */
 const Providers: React.FC<React.PropsWithChildren<{}>> = ({children}) => {
     return (
-        <>
+        // ThemeProvider wraps the children to provide theme related context
+        <ThemeProvider>
             {/* AuthProvider wraps the children to provide authentication related context */}
             <AuthProvider>
-                {/*// ThemeProvider wraps the children to provide theme related context*/}
-                <ThemeProvider>
-                    {children}
-                </ThemeProvider>
+                {children}
             </AuthProvider>
-        </>
-
+        </ThemeProvider>
     )
 }
 
